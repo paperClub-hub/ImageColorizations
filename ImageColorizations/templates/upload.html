@@ -1,0 +1,53 @@
+
+{%extends "layout.html" %}
+
+{% block content %}
+<form method ="POST" enctype="multipart/form-data">
+    {{form.csrf_token}}
+    <fieldset class="form-group">
+        <legend class = "border-bottom mb-4"> 图像颜色修复 </legend>
+        <div class = "form-group">
+            {%if form.upload.errors %}
+            {{form.upload(class = "form-control-file is-invalid")}}
+            <div class = "invalid-feedback">
+                {% for error in form.upload.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+            </div>
+            {%else%}
+            {{form.upload(class = "form-control-file")}}
+            {%endif%}
+        </div>
+        <div class = "form-group">
+            {{form.submit(class="btn btn-primary")}}
+        </div>
+
+
+    </fieldset>
+</form>
+
+或者
+
+<form method ="POST" enctype="multipart/form-data">
+    {{url_form.csrf_token}}
+    <fieldset class="form-group">
+        <legend class = "border-bottom mb-4"> </legend>
+        <div class = "form-group">
+            {%if url_form.URL_str.errors %}
+            {{url_form.URL_str(class = "form-control-file is-invalid")}}
+            <div class = "invalid-feedback">
+                {% for error in url_form.URL_str.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+            </div>
+            {%else%}
+            {{url_form.URL_str(class = "form-control-file", id = "URL", placeholder = " 请粘贴图片网络地址 ")}}
+            {%endif%}
+        </div>
+        <div class = "form-group">
+            {{url_form.submit(class="btn btn-primary")}}
+        </div>
+
+    </fieldset>
+</form>
+{% endblock content%}

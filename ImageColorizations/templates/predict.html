@@ -1,0 +1,34 @@
+
+{%extends "layout.html" %}
+
+{% block content %}
+<div>
+    </br>
+    <span style="color: #0a1363; font-size: x-large; ">  结果显示  </span>
+        <body>
+            <p>
+            <div class="divleft"> <span> 原始图片 </span>
+                <img class ="img_box" src="{{ ori_bytes }}"  alt="原始图片" >
+            </div>
+            <div class="divright"> <span> 转换结果 </span>
+                <img class ="img_box" src="{{ img_bytes }}"  alt="转换后图片" >
+            </div>
+            </p>
+        </body>
+
+</div>
+
+<!-- 样式 -->
+<style>
+    .container{ width: 800px; height: 1200px;  border: 1px solid #000; text-align: center; }
+    .divleft{   float: left; width:300px; border: 1px solid #e7e3df
+    }
+    .divright{  float: right; width:300px; border: 1px solid #e7e3df
+    }
+    .img_box { width: 300px; display: inline}
+    /*.divright{ float: right; width:100px; }*/
+
+</style>
+
+{% endblock content%}
+
